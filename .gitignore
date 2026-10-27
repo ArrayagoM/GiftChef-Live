@@ -1,0 +1,32 @@
+# Secretos y estado local
+.env
+**/.env
+logs/
+config/last-character.json
+*.log
+
+# Node
+node_modules/
+
+# Unity (se regeneran)
+unity-game/Library/
+unity-game/Temp/
+unity-game/Obj/
+unity-game/Build/
+unity-game/Builds/
+unity-game/Logs/
+unity-game/UserSettings/
+unity-game/*.csproj
+unity-game/*.sln
+
+# Modelos 3D y sonidos de terceros: se descargan aparte (ver docs/ASSETS-Y-CREDITOS.md)
+unity-game/Assets/Modelos/
+unity-game/Assets/Resources/*.mp3
+unity-game/Assets/Resources/*.wav
+*.fbx
+*.mp3
+!web/assets/**/*.mp3
+
+# Archivos de prueba del juego
+spawn-test.txt
+event-test.txt

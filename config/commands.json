@@ -1,0 +1,6 @@
+{
+  "commands": [
+    { "trigger": "!boost", "action": "advance", "amount": 1, "cooldownSec": 30 },
+    { "trigger": "!salto", "action": "animation", "name": "jump", "cooldownSec": 10 }
+  ]
+}

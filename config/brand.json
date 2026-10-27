@@ -1,0 +1,12 @@
+{
+  "name": "TinTech",
+  "handle": "@tinchotech",
+  "tagline": "Desarrollador Full Stack · Robótica · IoT",
+  "presents": "presenta",
+  "gameTitleTop": "HÉROES",
+  "gameTitleMid": "vs",
+  "gameTitleBottom": "VILLANOS",
+  "accent": "#19e3ff",
+  "splashSeconds": 3.4,
+  "ballMark": "T"
+}

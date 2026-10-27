@@ -1,0 +1,6 @@
+Poné acá las imágenes (.png / .jpg / .webp) y los modelos 3D (.glb) de los personajes.
+
+Después referencialos en config/race.json, por ejemplo:
+  { "name": "Galaxy", "team": "heroes", "points": 200, "image": "assets/heroe1.png", "model": "assets/heroe1.glb" }
+
+Apretá F5 en el juego para ver los cambios.

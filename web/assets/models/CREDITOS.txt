@@ -1,0 +1,5 @@
+﻿robot.glb - "RobotExpressive"
+Autor: Tomas Laulhe. Modificaciones de Don McCurdy (expresiones de la cara y conversion con FBX2glTF).
+Licencia: CC0 1.0 (dominio publico): se puede usar y modificar sin atribucion.
+Fuente: https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb
+Animaciones: Dance, Death, Idle, Jump, No, Punch, Running, Sitting, Standing, ThumbsUp, Walking, WalkJump, Wave, Yes

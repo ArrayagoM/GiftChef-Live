@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Héroes vs Villanos · by TinTech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "/three/build/three.module.js", "three/addons/": "/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage">
+  <canvas id="scene"></canvas>
+
+  <div id="startGate">
+    <div class="gateBox">
+      <div class="gateTitle">HÉROES vs VILLANOS</div>
+      <button id="gateButton" type="button">▶ TOCÁ PARA EMPEZAR</button>
+      <div class="gateHint">Activa el sonido y la voz de Nova.<br>Hacelo <b>antes</b> de iniciar el LIVE.</div>
+    </div>
+  </div>
+
+  <div id="vignette"></div>
+
+  <!-- Presentación de marca al arrancar -->
+  <div id="splash" class="hidden">
+    <div class="splashGrid"></div>
+    <div class="splashBox">
+      <svg class="chip" viewBox="0 0 120 120" aria-hidden="true">
+        <g stroke="var(--accent)" stroke-width="5" stroke-linecap="round">
+          <path d="M34 8v16M60 8v16M86 8v16M34 96v16M60 96v16M86 96v16M8 34h16M8 60h16M8 86h16M96 34h16M96 60h16M96 86h16"/>
+        </g>
+        <rect x="24" y="24" width="72" height="72" rx="14" fill="#0b1230" stroke="var(--accent)" stroke-width="5"/>
+        <path d="M38 44h44M60 44v36" stroke="#fff" stroke-width="11" stroke-linecap="round" fill="none"/>
+        <circle cx="38" cy="80" r="4" fill="var(--accent)"/><circle cx="82" cy="80" r="4" fill="var(--accent)"/>
+      </svg>
+      <div id="splashBrand" class="splashBrand">TinTech</div>
+      <div id="splashPresents" class="splashPresents">presenta</div>
+      <div class="splashTitle"><span id="stTop">HÉROES</span><i id="stMid">vs</i><span id="stBottom">VILLANOS</span></div>
+      <div id="splashTag" class="splashTag"></div>
+    </div>
+  </div>
+
+  <!-- Sello permanente -->
+  <div id="brandBadge"><span class="bolt">⚡</span><b id="brandName">TinTech</b><em id="brandHandle">@tinchotech</em></div>
+
+  <div id="hud">
+    <div id="conn"><span id="dot"></span><span id="connLabel">Bridge desconectado</span></div>
+    <div id="wins">
+      <div class="winBox" id="winsHeroes"><div class="winTeam"></div><div class="winCount">0/70 WINS</div></div>
+      <div class="winBox" id="winsVillains"><div class="winTeam"></div><div class="winCount">0/70 WINS</div></div>
+    </div>
+    <div id="bar">
+      <div id="barTrack"></div>
+      <div id="barMarker"></div>
+    </div>
+
+    <div id="topBox">
+      <div id="goal"><div id="goalFill"></div><span id="goalText"></span></div>
+      <div id="bossBox"><div id="bossFill"></div><span id="bossText"></span></div>
+      <div id="podium"></div>
+      <div id="boost"></div>
+      <div id="buffs"></div>
+    </div>
+
+    <div class="team" id="teamHeroes"><div class="teamName"></div><div class="rows"></div></div>
+    <div class="team right" id="teamVillains"><div class="teamName"></div><div class="rows"></div></div>
+
+    <div id="feed"></div>
+    <div id="floaters"></div>
+    <div id="soundHint">🔊 Hacé clic para activar el sonido</div>
+    <div id="banner"><div id="bannerTitle"></div><div id="bannerSub"></div></div>
+
+    <div id="champion">
+      <div class="rays"></div>
+      <div class="championCard">
+        <div class="trophy">🏆</div>
+        <div class="championLabel">¡CAMPEONES!</div>
+        <div id="championTeam"></div>
+        <div id="championWins"></div>
+        <div id="championUser"></div>
+        <div id="championTop"></div>
+        <div id="championCountdown"></div>
+        <div class="signature"><span>⚡</span> <b class="sigName">TinTech</b> · <span class="sigHandle">@tinchotech</span></div>
+      </div>
+    </div>
+
+    <div id="host">
+      <div id="bubble"></div>
+      <div id="hostBox"><div id="hostLive">● EN VIVO</div><div id="hostName">Nova</div></div>
+    </div>
+
+    <div id="epic">
+      <div class="rays"></div>
+      <div class="epicCard">
+        <div id="epicGift"></div>
+        <div id="epicPhoto"></div>
+        <div id="epicTitle"></div>
+        <div id="epicUser"></div>
+        <div id="epicSub"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="game.js"></script>
+</body>
+</html>

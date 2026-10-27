@@ -1,0 +1,378 @@
+{
+  "enabled": true,
+  "name": "Nova",
+  "voice": {
+    "lang": "es",
+    "preferred": [
+      "Elena Online",
+      "Dalia Online",
+      "Salome Online",
+      "Elvira Online",
+      "Natural",
+      "Online",
+      "Google español",
+      "Helena",
+      "Laura"
+    ],
+    "rate": 1.05,
+    "pitch": 1,
+    "volume": 1
+  },
+  "avatar": {
+    "model": "",
+    "outfit": "#16244f",
+    "hair": "#14214a",
+    "skin": "#e0aa88",
+    "accent": "#19e3ff"
+  },
+  "ai": {
+    "enabled": true,
+    "maxRepliesPerMinute": 8,
+    "minSecondsBetween": 3,
+    "provider": "groq",
+    "groqModel": "openai/gpt-oss-120b",
+    "temperature": 0.9,
+    "model": "claude-haiku-5-5",
+    "effort": "low"
+  },
+  "readChat": {
+    "enabled": true,
+    "everySec": 30,
+    "maxChars": 80
+  },
+  "promoEverySec": [
+    20,
+    35
+  ],
+  "greetJoinsEverySec": 2,
+  "askStyleEverySec": 300,
+  "crowd": {
+    "mediumJoinsPerMin": 6,
+    "largeJoinsPerMin": 20,
+    "mediumChatsPerMin": 12,
+    "largeChatsPerMin": 30
+  },
+  "thankLikesEverySec": 45,
+  "narrateEverySec": 18,
+  "maxQueued": 6,
+  "phrases": {
+    "intro": [
+      "¡Hola hola! Soy {bot}, la asistente de TinTech. Hoy se pelean los Héroes contra los Villanos: ¡mandá regalos para empujar la pelota!"
+    ],
+    "gift": [
+      "¡Gracias {user} por {gift}!",
+      "¡{user} manda {gift}! ¡Vamos {team}!",
+      "¡Uff, {gift} de {user}! ¡Empujón para los {team}!"
+    ],
+    "giftCount": [
+      "¡Gracias {user} por {count} {gift}!",
+      "¡{user} mandó {count} {gift}! ¡Qué crack!"
+    ],
+    "bigGift": [
+      "¡¡Wow!! ¡{user} mandó {gift}! ¡Eso es un empujón enorme para los {team}!",
+      "¡No lo puedo creer! ¡{gift} de {user}! ¡Gracias gracias gracias!"
+    ],
+    "gifts": [
+      "¡Gracias {users} por los regalos!",
+      "¡Lluvia de regalos! Gracias {users}."
+    ],
+    "follow": [
+      "¡Gracias por seguirme, {user}!",
+      "¡{user} se sumó a la familia! Gracias por el follow."
+    ],
+    "likes": [
+      "¡Gracias por los likes, {user}! Cada tap empuja para los Héroes.",
+      "¡Qué lindo ver tantos likes! Sigan tocando la pantalla."
+    ],
+    "join": [
+      "¡Bienvenido {user}!",
+      "¡Hola {user}! ¿Héroe o Villano?",
+      "¡Llegó {user}! Elegí tu equipo."
+    ],
+    "roundWin": [
+      "¡¡Ganan los {team}!! El último empujón fue de {user}. ¡Ya van {wins} wins!",
+      "¡Victoria para los {team}! Gracias {user} por el empujón final."
+    ],
+    "champion": [
+      "¡¡Increíble!! ¡Los {team} son los campeones! ¡Llegaron a {wins} wins! Gracias a todos los que empujaron. ¡Arranca un torneo nuevo!",
+      "¡Campeones, campeones! ¡Los {team} llegaron a {wins} wins! El último empujón fue de {user}. ¡Ahora empieza todo de cero!"
+    ],
+    "close": [
+      "¡Los {team} están a punto de ganar! ¡{rival}, hagan algo!",
+      "¡Cuidado! La pelota está casi en la meta de los {team}."
+    ],
+    "promo": [
+      "Si te está gustando, compartí el live con tus amigos así somos más jugadores.",
+      "¡Tocá seguir para no perderte la próxima batalla!",
+      "Escribí heroes o villanos con un signo de exclamación en el chat para empujar gratis.",
+      "¡Dale tap tap a la pantalla! Los likes empujan para los Héroes.",
+      "¿Quién va a ganar hoy? Comentá tu equipo en el chat.",
+      "Seguí a TinTech para no perderte los próximos lives.",
+      "Si te está gustando el live, tocá seguir y compartilo con tus amigos."
+    ],
+    "hello": [
+      "¡Hola {user}! Bienvenido.",
+      "¡Holaa {user}! ¿De qué equipo sos?"
+    ],
+    "howTo": [
+      "Cada regalo empuja la pelota para un equipo. Si llega a la meta, gana."
+    ],
+    "score": [
+      "Los Héroes tienen {heroesWins} wins y los Villanos {villainsWins}."
+    ],
+    "isBot": [
+      "Soy una inteligencia artificial, la asistente de TinTech. ¡Pero me divierto igual que vos!",
+      "Jaja, soy una IA, no una persona. Pero acá estoy con ustedes, ¿{user}?"
+    ],
+    "novaCall": [
+      "¡Acá estoy, {user}! ¿Qué necesitás?",
+      "¡Me llamaste, {user}! Contame."
+    ],
+    "compliment": [
+      "¡Ay, gracias {user}, qué dulce!",
+      "¡{user}, me vas a hacer sonrojar!"
+    ],
+    "whoMade": [
+      "Este juego es de TinTech. ¡Seguilo en @tinchotech para ver más!"
+    ],
+    "fromWhere": [
+      "¡Qué lindo tener gente de todos lados! Bienvenido, {user}.",
+      "¡Saludos para {user} y para todos los que miran desde lejos!"
+    ],
+    "bye": [
+      "¡Chau {user}! Gracias por pasar, volvé cuando quieras.",
+      "¡Nos vemos, {user}! No te olvides de seguir."
+    ],
+    "mvp": [
+      "¡Y el MVP de la ronda es {user}! Qué empujón, {team}.",
+      "Aplausos para {user}, la estrella de esta ronda."
+    ],
+    "tapPromo": [
+      "¡Tap tap en la pantalla! Cada toque empuja la pelota, ¡no paren!",
+      "Escriban un punto en el chat, muchos puntos juntos activan el modo popular y los taps valen triple.",
+      "¡Vamos con los puntos! Pongan un punto en el chat entre todos y se activa el modo popular.",
+      "¿Quieren que los taps valgan más? Muchos puntos en el chat y se activa el modo popular."
+    ],
+    "popularStart": [
+      "¡Modo popular activado! Ahora cada tap vale triple, ¡a tocar la pantalla!",
+      "¡Lo lograron, es modo popular! ¡Tap tap tap, ahora valen el triple!"
+    ],
+    "welcomeAll": [
+      "¡Bienvenidos a todos los que van llegando! Elijan equipo y manden su regalo.",
+      "¡Cuánta gente! Bienvenidos, ¿de qué lado van a estar hoy?",
+      "¡Hola a todos los que se suman! Tap tap y a empujar la pelota."
+    ],
+    "askStyle": [
+      "Che, una pregunta para todos: ¿qué estilo de juego les gustaría que haga después? Escríbanlo en el chat, que lo anoto.",
+      "¿Qué juego quieren ver en el próximo live? Carreras, puzzles, peleas... ¡cuéntenme en el chat!"
+    ],
+    "ideaThanks": [
+      "¡Anotado, {user}! Buena idea.",
+      "¡Me gusta eso, {user}! Lo guardo.",
+      "¡Ooh, {user}! Lo tengo en cuenta."
+    ],
+    "howAreYou": [
+      "¡Todo bien, {user}! ¿Y vos, cómo andás?",
+      "¡Bárbara, {user}! Con ganas de ver la batalla. ¿Vos?"
+    ],
+    "welcomeBack": [
+      "¡Mirá quién volvió! Bienvenido de nuevo, {user}.",
+      "¡{user}, qué bueno verte otra vez por acá!"
+    ],
+    "welcomeBackRank": [
+      "¡Volvió {user}! Ya estás en el ranking de la semana, a defender el puesto.",
+      "¡{user} de vuelta! Mirá que el podio te está esperando."
+    ],
+    "streak": [
+      "¡Racha de {n} para los {team}! {rival}, les toca la remontada: arrancan con ventaja.",
+      "¡Los {team} no paran, van {n} seguidas! Pero {rival} arranca adelante la próxima."
+    ],
+    "bossStart": [
+      "¡Cuidado, apareció el jefe! Empujen los dos equipos para vencerlo.",
+      "¡Llegó el jefe! Quien más daño haga se lleva un win extra."
+    ],
+    "bossWin": [
+      "¡Jefe derrotado! El win extra es para los {team}.",
+      "¡Lo lograron! Los {team} se llevan el premio por el jefe."
+    ],
+    "bossLost": [
+      "Uy, el jefe se escapó. ¡La próxima lo vencemos!"
+    ],
+    "goalReached": [
+      "¡Cumplimos la meta del live! ¡Gracias a todos, vamos por la próxima!",
+      "¡Meta lograda! Esto es un trabajo en equipo, ¡qué bien se siente!"
+    ],
+    "boostStart": [
+      "¡Evento relámpago! Todo empuja el doble por unos segundos, ¡aprovechen!",
+      "¡Doble empuje ya! Manden regalos y taps ahora."
+    ],
+    "thanks": [
+      "¡De nada {user}! Gracias a vos por estar."
+    ]
+  },
+  "chatReplies": [
+    {
+      "match": [
+        "sos un robot",
+        "sos robot",
+        "sos real",
+        "sos una ia",
+        "sos ia",
+        "eres un robot",
+        "eres real",
+        "eres ia",
+        "sos humana"
+      ],
+      "say": "isBot"
+    },
+    {
+      "match": [
+        "te amo",
+        "te quiero",
+        "hermosa",
+        "bella",
+        "linda",
+        "preciosa"
+      ],
+      "say": "compliment"
+    },
+    {
+      "match": [
+        "hola",
+        "holi",
+        "buenas",
+        "buen dia",
+        "buenos dias",
+        "buenas tardes",
+        "buenas noches",
+        "hello",
+        "hey",
+        "saludos"
+      ],
+      "say": "hello"
+    },
+    {
+      "match": [
+        "como estas",
+        "como andas",
+        "como estan",
+        "como andan",
+        "que tal"
+      ],
+      "say": "howAreYou"
+    },
+    {
+      "match": [
+        "nova"
+      ],
+      "say": "novaCall"
+    },
+    {
+      "match": [
+        "quien hizo",
+        "quien creo",
+        "quien programo",
+        "quien lo hizo",
+        "de quien es"
+      ],
+      "say": "whoMade"
+    },
+    {
+      "match": [
+        "de donde",
+        "desde donde",
+        "saludos desde"
+      ],
+      "say": "fromWhere"
+    },
+    {
+      "match": [
+        "chau",
+        "adios",
+        "me voy",
+        "hasta luego"
+      ],
+      "say": "bye"
+    },
+    {
+      "match": [
+        "hola",
+        "buenas",
+        "holi",
+        "holaa"
+      ],
+      "say": "hello"
+    },
+    {
+      "match": [
+        "como se juega",
+        "cómo se juega",
+        "como juego",
+        "cómo juego",
+        "reglas",
+        "que hay que hacer",
+        "qué hay que hacer"
+      ],
+      "say": "howTo"
+    },
+    {
+      "match": [
+        "quien gana",
+        "quién gana",
+        "quien va ganando",
+        "quién va ganando",
+        "resultado",
+        "cuantos wins",
+        "cuántos wins"
+      ],
+      "say": "score"
+    },
+    {
+      "match": [
+        "gracias"
+      ],
+      "say": "thanks"
+    }
+  ],
+  "blockedWords": [
+    "puto",
+    "puta",
+    "mierda",
+    "pija",
+    "verga",
+    "concha",
+    "nazi",
+    "forro",
+    "trolo",
+    "dildo",
+    "porno",
+    "porn",
+    "sexo",
+    "sex",
+    "culo",
+    "coño",
+    "cojones",
+    "pene",
+    "vagina",
+    "hitler",
+    "violador",
+    "pedofilo",
+    "suicid",
+    "mataos",
+    "negro de mierda",
+    "sudaca",
+    "maricon",
+    "marica",
+    "boludo",
+    "pelotudo",
+    "gilipollas",
+    "cabron",
+    "hijo de puta",
+    "hdp",
+    "fuck",
+    "shit",
+    "bitch",
+    "nigger",
+    "fag"
+  ]
+}

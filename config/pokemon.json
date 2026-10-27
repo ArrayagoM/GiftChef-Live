@@ -1,0 +1,22 @@
+{
+  "lowGiftChance": 0.55,
+  "lowGiftLimit": 10,
+  "maxAlive": 3,
+  "cooldown": 5,
+  "maxLegend": 1,
+  "legendCooldown": 12,
+  "comboWindow": 45,
+  "comboMin": 100,
+  "comboChance": 0.4,
+  "stayCommon": 11,
+  "stayRare": 7,
+  "stayTop": 9,
+  "stayActor": 38,
+  "tiers": [
+    { "minDiamonds": 0,     "weights": [94, 6, 0, 0] },
+    { "minDiamonds": 10,    "weights": [70, 26, 4, 0] },
+    { "minDiamonds": 100,   "weights": [30, 45, 25, 0] },
+    { "minDiamonds": 1000,  "weights": [0, 25, 60, 15] },
+    { "minDiamonds": 10000, "weights": [0, 0, 0, 100] }
+  ]
+}

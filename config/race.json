@@ -1,0 +1,50 @@
+{
+  "goalWins": 200,
+  "championSeconds": 9,
+  "winsPerRound": 1,
+  "trackPoints": 400,
+  "pointsPerDiamond": 1,
+  "giftBasePoints": 12,
+  "liveGoal": { "target": 200 },
+  "popular": { "minDots": 8, "minUsers": 3, "windowSec": 10, "seconds": 15, "cooldownSec": 60, "likeMult": 3 },
+  "boss": { "everyRounds": 5, "hp": 600, "seconds": 45 },
+  "epicFromDiamonds": 1000,
+
+  "teams": {
+    "heroes":   { "name": "HÉROES",   "color": "#2f8fff" },
+    "villains": { "name": "VILLANOS", "color": "#e8323c" }
+  },
+
+  "likes":   { "label": "Tap Tap", "team": "heroes",   "pointsPerLike": 1, "emoji": "👆", "image": "", "model": "" },
+  "follows": { "label": "Follow",  "team": "villains", "points": 10,       "emoji": "➕", "image": "", "model": "" },
+
+  "gifts": [
+    { "name": "GG",          "team": "heroes",   "diamonds": 1,     "emoji": "🎮", "image": "", "model": "" },
+    { "name": "Heart Me",    "team": "heroes",   "diamonds": 1,     "emoji": "💙", "image": "", "model": "" },
+    { "name": "Hand Heart",  "team": "heroes",   "diamonds": 100,   "emoji": "🫶", "image": "", "model": "" },
+    { "name": "Galaxy",      "team": "heroes",   "diamonds": 1000,  "emoji": "🌌", "image": "", "model": "" },
+    { "name": "Universe",    "team": "heroes",   "diamonds": 34999, "emoji": "🪐", "wins": 1, "image": "", "model": "" },
+
+    { "name": "Rose",         "team": "villains", "diamonds": 1,     "emoji": "🌹", "image": "", "model": "" },
+    { "name": "Finger Heart", "team": "villains", "diamonds": 5,     "emoji": "🫰", "image": "", "model": "" },
+    { "name": "Doughnut",     "team": "villains", "diamonds": 30,    "emoji": "🍩", "image": "", "model": "" },
+    { "name": "Corgi",        "team": "villains", "diamonds": 299,   "emoji": "🐶", "image": "", "model": "" },
+    { "name": "Lion",         "team": "villains", "diamonds": 29999, "emoji": "🦁", "image": "", "model": "" }
+  ],
+
+  "ui": {
+    "showFeed": false
+  },
+
+  "sound": {
+    "volume": 0.7,
+    "music": true,
+    "musicVolume": 0.35,
+    "files": {}
+  },
+
+  "commands": [
+    { "trigger": "!heroes",   "team": "heroes",   "points": 1, "emoji": "🛡️", "cooldownSec": 5 },
+    { "trigger": "!villanos", "team": "villains", "points": 1, "emoji": "😈", "cooldownSec": 5 }
+  ]
+}

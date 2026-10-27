@@ -1,0 +1,10 @@
+{
+  "gifts": [
+    { "name": "Rose",  "action": "advance", "amount": 1 },
+    { "name": "Heart Me", "action": "advance", "amount": 3 },
+    { "name": "Galaxy", "action": "advance", "amount": 25 },
+    { "name": "Finger Heart", "action": "retreat", "amount": 2 },
+    { "name": "Lion", "action": "retreat", "amount": 20 }
+  ],
+  "defaultByDiamonds": { "advancePerDiamond": 0.1, "enabled": false }
+}

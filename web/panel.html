@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel · Cocina TinTech</title>
+<style>
+  :root { --bg:#0b0f1a; --card:#141a2b; --card2:#1b2338; --ink:#e8ecf8; --mute:#8d97b5; --accent:#ffd84d; --red:#ec3a30; --ok:#3ddc84; --warn:#ffb020; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.4 system-ui,'Segoe UI',sans-serif; background:var(--bg); color:var(--ink); }
+  header { display:flex; align-items:center; gap:12px; padding:14px 18px; background:#10162a; border-bottom:1px solid #243052; position:sticky; top:0; z-index:5; flex-wrap:wrap; }
+  header h1 { font-size:18px; margin:0; color:var(--accent); letter-spacing:.5px; }
+  .pill { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:99px; background:var(--card2); font-size:13px; }
+  .dot { width:10px; height:10px; border-radius:50%; background:var(--red); }
+  .dot.ok { background:var(--ok); } .dot.warn { background:var(--warn); }
+  main { max-width:980px; margin:0 auto; padding:16px; display:grid; gap:16px; }
+  section { background:var(--card); border-radius:14px; padding:16px; }
+  h2 { margin:0 0 10px; font-size:15px; color:var(--accent); text-transform:uppercase; letter-spacing:.8px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  button, input, select { font:inherit; color:var(--ink); }
+  button { background:var(--card2); border:1px solid #2c3858; padding:10px 12px; border-radius:10px; cursor:pointer; }
+  button:hover { background:#232d49; } button:disabled { opacity:.4; cursor:not-allowed; }
+  button.primary { background:var(--red); border-color:var(--red); font-weight:700; }
+  button.primary:hover { background:#ff4b40; }
+  .char { text-align:left; display:flex; flex-direction:column; gap:3px; }
+  .char b { font-size:16px; } .char small { color:var(--mute); }
+  .char.on { outline:2px solid var(--accent); background:#262f4d; }
+  input[type=text] { background:#0e1424; border:1px solid #2c3858; border-radius:10px; padding:10px 12px; width:100%; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .row > input[type=text] { flex:1; min-width:180px; }
+  label.t { display:flex; align-items:center; gap:8px; cursor:pointer; }
+  #log { max-height:230px; overflow:auto; font:13px/1.45 ui-monospace,Consolas,monospace; background:#0b101d; border-radius:10px; padding:10px; color:#b9c3e3; }
+  #log div { padding:1px 0; } #log .say { color:var(--accent); } #log .evt { color:#8fb4ff; } #log .err { color:#ff8b80; }
+  .hint { color:var(--mute); font-size:13px; margin:6px 0 0; }
+  #audioBanner { display:none; background:#3a2a10; border:1px solid var(--warn); padding:12px; border-radius:10px; margin-bottom:10px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>COCINA TINTECH · Panel</h1>
+  <span class="pill"><span class="dot" id="dotBridge"></span><span id="txtBridge">Sin conexión con el bridge</span></span>
+  <span class="pill"><span class="dot" id="dotTk"></span><span id="txtTk">TikTok: ...</span></span>
+  <span class="pill" id="pillEv" title="Eventos reales que llegan de TikTok (no cuenta las pruebas)">Eventos reales: esperando...</span>
+  <span class="pill" id="pillVoice">Voz: ...</span>
+</header>
+<main>
+  <section>
+    <h2>Personaje</h2>
+    <div class="grid" id="chars"></div>
+    <div class="row" style="margin-top:10px">
+      <label class="t">Nombre del cocinero activo <input type="text" id="chefName" maxlength="24" placeholder="Ej: Chef Marcos"></label>
+      <button class="primary" id="btnRename">Cambiar nombre</button>
+    </div>
+    <p class="hint">El personaje elegido cambia en el juego y en su voz y su forma de hablar. Los que dicen "sin modelo" todavía no tienen el modelo 3D cargado.</p>
+  </section>
+
+  <section>
+    <h2>Voz</h2>
+    <div id="audioBanner">El navegador necesita un toque para activar el audio. <button class="primary" id="btnAudio">Activar audio</button></div>
+    <div class="row">
+      <label class="t"><input type="checkbox" id="chkMute"> Silenciar voces</label>
+      <label class="t">Volumen <input type="range" id="vol" min="0" max="1" step="0.05" value="1"></label>
+      <span class="pill" id="voiceInfo">voz: -</span>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <input type="text" id="sayText" placeholder="Escribí algo para que el personaje lo diga" value="Hola a todos los que están llegando">
+      <button id="btnSay">Decir</button>
+    </div>
+    <p class="hint">Se usan las voces humanas "Natural" de Edge (necesitan internet). Cada personaje tiene su tono y velocidad.</p>
+  </section>
+
+  <section>
+    <h2>Calibrar la voz de <span id="calName">-</span></h2>
+    <div class="row" style="margin-bottom:8px">
+      <label class="t"><input type="checkbox" id="chkNeural" checked> Voz neuronal de Microsoft con tono REAL (necesita internet; si falla usa la voz del navegador)</label>
+    </div>
+    <div class="row">
+      <label class="t">Voz <select id="calVoice" style="min-width:260px"></select></label>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label class="t" style="min-width:90px">Tono</label>
+      <input type="range" id="calPitch" min="0.5" max="2" step="0.01" value="1" style="flex:1">
+      <input type="number" id="calPitchN" min="0.5" max="2" step="0.01" value="1" style="width:84px">
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label class="t" style="min-width:90px">Velocidad</label>
+      <input type="range" id="calRate" min="0.5" max="2" step="0.01" value="1" style="flex:1">
+      <input type="number" id="calRateN" min="0.5" max="2" step="0.01" value="1" style="width:84px">
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label class="t" style="min-width:90px">Volumen</label>
+      <input type="range" id="calVol" min="0" max="1" step="0.01" value="1" style="flex:1">
+      <input type="number" id="calVolN" min="0" max="1" step="0.01" value="1" style="width:84px">
+    </div>
+    <div class="row" style="margin-top:10px">
+      <input type="text" id="calText" value="Hola, soy el cocinero. Pidan lo que quieran que se los preparo." style="flex:1">
+      <button id="calTest">Probar</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button class="primary" id="calSave">Guardar para este cocinero</button>
+      <button id="calUndo">Deshacer cambios</button>
+      <span class="pill" id="calInfo">sin cambios</span>
+    </div>
+    <p class="hint">Mové las barras o escribí el número y tocá "Probar" para escucharlo al instante (no se guarda). "Guardar" lo deja fijo para este cocinero (queda en el archivo de personajes). El volumen es general de este panel.</p>
+  </section>
+
+  <section>
+    <h2>Conexión con TikTok</h2>
+    <div class="row">
+      <span style="font-size:20px;color:var(--accent)">@</span>
+      <input type="text" id="userInput" placeholder="usuario del live" maxlength="40">
+      <button class="primary" id="btnUser">Conectar a este usuario</button>
+    </div>
+    <p class="hint" id="userHint">Usuario actual: -</p>
+  </section>
+
+  <section>
+    <h2>Pruebas</h2>
+    <div class="grid">
+      <button data-sim='{"what":"gift","gift":"Rose","user":"Ana"}'>🌹 Regalo: Rose (pizza)</button>
+      <button data-sim='{"what":"gift","gift":"Finger Heart","user":"Beto"}'>🫰 Finger Heart (hamburguesa)</button>
+      <button data-sim='{"what":"gift","gift":"Doughnut","user":"Caro"}'>🍩 Doughnut (papas)</button>
+      <button data-sim='{"what":"gift","gift":"GG","user":"Dani"}'>🎮 GG (dona)</button>
+      <button data-sim='{"what":"gift","gift":"Rose","user":"Ana","count":5}'>🌹 x5 del mismo usuario</button>
+      <button data-sim='{"what":"join","user":"Lucia"}'>👤 Entra 1 persona</button>
+      <button data-sim='{"what":"crowd","count":8}'>👥 Entran 8 a la vez</button>
+      <button data-sim='{"what":"chat","user":"Marcos","text":"hola"}'>💬 Chat: hola</button>
+      <button data-sim='{"what":"chat","user":"Sofi","text":"qué es lo más rico que cocinás?"}'>💬 Chat: pregunta</button>
+      <button data-sim='{"what":"follow","user":"Nico"}'>➕ Follow</button>
+      <button data-sim='{"what":"like","user":"Tomi","count":30}'>❤ Likes</button>
+    </div>
+    <p class="hint">Estas pruebas pasan por el mismo camino que los eventos reales de TikTok: el juego, el presentador y la voz.</p>
+  </section>
+
+  <section>
+    <h2>Registro</h2>
+    <div id="log"></div>
+  </section>
+</main>
+<script src="panel.js"></script>
+</body>
+</html>
